@@ -148,6 +148,9 @@ const SignUp = () => {
           delete errors.country;
         }
         break;
+        
+      default:
+        break;
     }
     
     setFieldErrors(errors);
@@ -160,22 +163,20 @@ const SignUp = () => {
   };
 
   const checkUniqueEmail = async (email) => {
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from('users')
       .select('email')
       .eq('email', email)
       .single();
-    
     return !data; // Return true if email is unique (no data found)
   };
 
   const checkUniqueUsername = async (username) => {
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from('users')
       .select('username')
       .eq('username', username)
       .single();
-    
     return !data; // Return true if username is unique (no data found)
   };
 
@@ -204,8 +205,6 @@ const SignUp = () => {
     try {
       // Validate all fields
       const requiredFields = ['email', 'username', 'password', 'confirmPassword', 'gender', 'country'];
-      const errors = {};
-      
       requiredFields.forEach(field => {
         validateField(field, formData[field]);
       });

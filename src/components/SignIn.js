@@ -71,7 +71,7 @@ const SignIn = () => {
           
           // First, check if user exists in our users table
           console.log('Checking if user exists in users table...');
-          const { data: existingUser, error: userCheckError } = await supabase
+          const { error: userCheckError } = await supabase
             .from('users')
             .select('*')
             .eq('id', data.user.id)
@@ -109,7 +109,7 @@ const SignIn = () => {
 
           // Always check if profile exists, regardless of user creation
           console.log('Checking if profile exists in user_profiles table...');
-          const { data: existingProfile, error: profileCheckError } = await supabase
+          const { error: profileCheckError } = await supabase
             .from('user_profiles')
             .select('*')
             .eq('user_id', data.user.id)
