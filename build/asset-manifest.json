@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/everla-project/static/css/main.e57a5a6d.css",
+    "main.js": "/everla-project/static/js/main.1649add7.js",
+    "index.html": "/everla-project/index.html",
+    "main.e57a5a6d.css.map": "/everla-project/static/css/main.e57a5a6d.css.map",
+    "main.1649add7.js.map": "/everla-project/static/js/main.1649add7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e57a5a6d.css",
+    "static/js/main.1649add7.js"
+  ]
+}
