@@ -351,7 +351,7 @@ const SignUp = () => {
         {/* Logo and Brand */}
         <div className="brand-section">
           <div className="logo">
-            <img src="/logo.jpeg" alt="Everla Logo" className="logo-image" />
+            <img src={`${process.env.PUBLIC_URL}/logo.jpeg`} alt="Everla Logo" className="logo-image" />
           </div>
         </div>
 
