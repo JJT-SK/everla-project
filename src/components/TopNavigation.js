@@ -14,8 +14,11 @@ const TopNavigation = ({ activePage = 'home' }) => {
       case 'home':
         navigate('/home');
         break;
-      case 'protocols':
+      case 'create-protocol':
         navigate('/protocols/create');
+        break;
+      case 'protocol-catalogue':
+        navigate('/protocols/catalogue');
         break;
       case 'insights':
         navigate('/insights');
@@ -45,10 +48,16 @@ const TopNavigation = ({ activePage = 'home' }) => {
               Home
             </button>
             <button 
-              className={`nav-button ${activePage === 'protocols' ? 'active' : ''}`}
-              onClick={() => handleNavClick('protocols')}
+              className={`nav-button ${activePage === 'create-protocol' ? 'active' : ''}`}
+              onClick={() => handleNavClick('create-protocol')}
             >
-              Protocols
+              Create a Protocol
+            </button>
+            <button 
+              className={`nav-button ${activePage === 'protocol-catalogue' ? 'active' : ''}`}
+              onClick={() => handleNavClick('protocol-catalogue')}
+            >
+              Protocol Catalogue
             </button>
             <button 
               className={`nav-button ${activePage === 'insights' ? 'active' : ''}`}

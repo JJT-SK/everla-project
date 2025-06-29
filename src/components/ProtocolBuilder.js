@@ -149,26 +149,26 @@ const ProtocolBuilder = ({ selectedHacks, onRemoveHack, onSaveProtocol, onNaviga
             <div className="score-indicators">
               <div className="score-item">
                 <span>Efficacy</span>
-                <div className="score-bar">
-                  <div className="score-fill effectiveness" style={{ width: `${(effectivenessScore / 5) * 100}%` }}></div>
+                <div className="protocol-score-bar">
+                  <div className="protocol-score-fill effectiveness" style={{ width: `${(effectivenessScore / 5) * 100}%` }}></div>
                 </div>
               </div>
               <div className="score-item">
                 <span>Difficulty</span>
-                <div className="score-bar">
-                  <div className="score-fill difficulty" style={{ width: `${(difficultyScore / 5) * 100}%` }}></div>
+                <div className="protocol-score-bar">
+                  <div className="protocol-score-fill difficulty" style={{ width: `${(difficultyScore / 5) * 100}%` }}></div>
                 </div>
               </div>
               <div className="score-item">
                 <span>Time</span>
-                <div className="score-bar">
-                  <div className="score-fill time" style={{ width: `${(timeInvestmentScore / 5) * 100}%` }}></div>
+                <div className="protocol-score-bar">
+                  <div className="protocol-score-fill time" style={{ width: `${(timeInvestmentScore / 5) * 100}%` }}></div>
                 </div>
               </div>
               <div className="score-item">
                 <span>Cost</span>
-                <div className="score-bar">
-                  <div className="score-fill cost" style={{ width: `${(costScore / 5) * 100}%` }}></div>
+                <div className="protocol-score-bar">
+                  <div className="protocol-score-fill cost" style={{ width: `${(costScore / 5) * 100}%` }}></div>
                 </div>
               </div>
             </div>
@@ -186,14 +186,14 @@ const ProtocolBuilder = ({ selectedHacks, onRemoveHack, onSaveProtocol, onNaviga
                 onClick={handleSaveProtocol}
                 disabled={selectedHacks.length === 0}
               >
-                Save
+                Create
               </button>
               <button 
                 className="btn-primary btn-activate"
                 onClick={handleSaveAndActivate}
                 disabled={selectedHacks.length === 0}
               >
-                Save and Activate
+                Create and Activate
               </button>
             </div>
           </div>

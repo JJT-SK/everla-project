@@ -155,90 +155,6 @@
   transition: width 0.3s ease;
 }
 
-/* Info Tooltip */
-.info-tooltip {
-  position: fixed;
-  z-index: 1000;
-  background: rgba(10, 14, 26, 0.98);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 1rem;
-  max-width: 280px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-  transform: translateX(-50%) translateY(-100%);
-  margin-top: -8px;
-}
-
-.tooltip-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
-
-.tooltip-header h4 {
-  margin: 0;
-  color: #ffffff;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.tooltip-close {
-  background: none;
-  border: none;
-  color: #8a8a8a;
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.tooltip-close:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.tooltip-content {
-  color: #ffffff;
-}
-
-.tooltip-description {
-  margin: 0 0 0.75rem 0;
-  font-size: 0.8rem;
-  line-height: 1.4;
-  color: #b0b0b0;
-}
-
-.tooltip-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.detail-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.75rem;
-}
-
-.detail-label {
-  color: #8a8a8a;
-  font-weight: 500;
-}
-
-.detail-value {
-  color: #ffffff;
-  font-weight: 600;
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
   .biohack-card {
@@ -250,7 +166,7 @@
   }
   
   .hover-icons {
-    gap: 0.6rem;
+    gap: 0.5rem;
   }
   
   .hover-icon {
@@ -259,18 +175,11 @@
   }
   
   .card-content {
-    padding: 0.6rem;
+    padding: 0.5rem;
   }
   
   .card-title {
     font-size: 0.8rem;
-  }
-  
-  .info-tooltip {
-    max-width: 260px;
-    left: 50% !important;
-    right: auto;
-    margin-left: -130px;
   }
 }
 
@@ -284,7 +193,7 @@
   }
   
   .hover-icons {
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
   
   .hover-icon {
@@ -293,20 +202,15 @@
   }
   
   .hover-icon svg {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
   }
   
   .card-content {
-    padding: 0.5rem;
+    padding: 0.4rem;
   }
   
   .card-title {
     font-size: 0.75rem;
-  }
-  
-  .info-tooltip {
-    max-width: 240px;
-    margin-left: -120px;
   }
 } 

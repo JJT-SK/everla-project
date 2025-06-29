@@ -204,18 +204,18 @@ const CreateProtocol = () => {
 
       if (hacksError) throw hacksError;
 
-      alert(protocolData.activated ? 'Protocol saved and activated!' : 'Protocol saved!');
+      alert(protocolData.activated ? 'Protocol created and activated!' : 'Protocol created!');
       navigate('/protocols');
     } catch (error) {
-      console.error('Error saving protocol:', error);
-      alert('Error saving protocol. Please try again.');
+      console.error('Error creating protocol:', error);
+      alert('Error creating protocol. Please try again.');
     }
   };
 
   if (loading) {
     return (
       <div className="create-protocol">
-        <TopNavigation activePage="protocols" />
+        <TopNavigation activePage="create-protocol" />
         <div className="loading">Loading biohacks...</div>
       </div>
     );
@@ -223,18 +223,8 @@ const CreateProtocol = () => {
 
   return (
     <div className="create-protocol">
-      <TopNavigation activePage="protocols" />
+      <TopNavigation activePage="create-protocol" />
       
-      {/* Sub-tabs */}
-      <div className="protocol-sub-tabs">
-        <div className="sub-tabs-container">
-          <button className="sub-tab active">Create a Protocol</button>
-          <button className="sub-tab" onClick={() => navigate('/protocols/catalogue')}>
-            Protocol Catalogue
-          </button>
-        </div>
-      </div>
-
       {/* Search and Filter Section */}
       <div className="search-filter-section">
         <div className="search-filter-container">

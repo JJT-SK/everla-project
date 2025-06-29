@@ -4,6 +4,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
 import CreateProtocol from './components/CreateProtocol';
+import ProtocolCatalogue from './components/ProtocolCatalogue';
 import './index.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/home" element={<Home />} />
           <Route path="/protocols/create" element={<CreateProtocol />} />
+          <Route path="/protocols/catalogue" element={<ProtocolCatalogue />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
