@@ -1,0 +1,615 @@
+.protocol-builder {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(15, 20, 35, 0.95) 0%, rgba(10, 14, 26, 0.98) 100%);
+  backdrop-filter: blur(24px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 100;
+  height: 120px;
+  overflow: hidden;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.builder-content {
+  max-width: 1600px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+/* Large screen optimizations - reduce padding and increase max-width */
+@media (min-width: 1600px) {
+  .builder-content {
+    max-width: 1800px;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  .builder-content {
+    max-width: 2000px;
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 2400px) {
+  .builder-content {
+    max-width: 2200px;
+    padding: 0 0.75rem;
+  }
+}
+
+/* Main Container - Professional Single Row Layout */
+.builder-main-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* Form Inputs - Left Section */
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.form-inputs input,
+.form-inputs textarea {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  color: #ffffff;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  font-weight: 400;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.form-inputs input:focus,
+.form-inputs textarea:focus {
+  outline: none;
+  border-color: #4a9eff;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+}
+
+.form-inputs input::placeholder,
+.form-inputs textarea::placeholder {
+  color: #a0a0a0;
+  font-weight: 400;
+}
+
+.form-inputs textarea {
+  resize: none;
+  height: 36px;
+  line-height: 1.3;
+}
+
+/* Selected Hacks - Central Focus - Dynamic sizing */
+.selected-hacks-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  min-width: 0;
+}
+
+.selected-hacks-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.75rem 0;
+  position: relative;
+  align-items: center;
+  min-height: 90px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  width: 100%;
+}
+
+.selected-hacks-container::-webkit-scrollbar {
+  display: none;
+}
+
+.selected-hack-slot {
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  position: relative;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selected-hack-slot:hover {
+  border-color: rgba(74, 158, 255, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.selected-hack-slot img {
+  width: 100%;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 6px 6px 0 0;
+  flex-shrink: 0;
+}
+
+.hack-name {
+  font-size: 0.65rem;
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  padding: 0.3rem 0.4rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 0;
+}
+
+.remove-hack {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: rgba(255, 71, 87, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.75rem;
+  z-index: 10;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+  opacity: 0.9;
+}
+
+.remove-hack:hover {
+  background: rgba(255, 71, 87, 1);
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4);
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.remove-hack:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+.empty-slot {
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  color: #8a8a8a;
+  font-size: 0.6rem;
+  font-weight: 500;
+}
+
+.empty-placeholder svg {
+  color: #8a8a8a;
+  width: 18px;
+  height: 18px;
+}
+
+.scroll-indicator {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  animation: pulse 2s infinite;
+  font-size: 0.8rem;
+  z-index: 3;
+  font-weight: 500;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Right Side Container - Fixed width to prevent overflow */
+.right-side-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  align-items: flex-end;
+  width: 320px;
+}
+
+/* Score Indicators - Right Side */
+.score-indicators {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: #b0b0b0;
+  font-weight: 500;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  white-space: nowrap;
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+}
+
+.score-item span {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+}
+
+.score-bar {
+  width: 48px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.score-fill.effectiveness {
+  background: linear-gradient(90deg, #4a9eff, #6bb3ff);
+}
+
+.score-fill.difficulty {
+  background: linear-gradient(90deg, #ff6b6b, #ff5252);
+}
+
+.score-fill.time {
+  background: linear-gradient(90deg, #ffd93d, #ffb300);
+}
+
+.score-fill.cost {
+  background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+}
+
+/* Action Buttons - Right Section */
+.action-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-transform: none;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4a9eff 0%, #3a8eef 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(74, 158, 255, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #3a8eef 0%, #2a7edf 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.4);
+}
+
+.btn-primary:disabled {
+  background: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-activate {
+  background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+  box-shadow: 0 2px 8px rgba(0, 184, 148, 0.3);
+}
+
+.btn-activate:hover:not(:disabled) {
+  background: linear-gradient(135deg, #00a085 0%, #009075 100%);
+  box-shadow: 0 4px 12px rgba(0, 184, 148, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive design - Simplified and more predictable */
+@media (max-width: 1200px) {
+  .builder-main-row {
+    gap: 1.5rem;
+  }
+  
+  .form-inputs {
+    width: 260px;
+  }
+  
+  .right-side-container {
+    width: 300px;
+  }
+  
+  .selected-hack-slot {
+    width: 85px;
+    height: 85px;
+  }
+  
+  .selected-hack-slot img {
+    height: 50px;
+  }
+  
+  .score-indicators {
+    gap: 0.75rem;
+    font-size: 0.7rem;
+  }
+  
+  .score-bar {
+    width: 42px;
+    height: 5px;
+  }
+  
+  .score-item span {
+    font-size: 0.65rem;
+  }
+  
+  .action-buttons {
+    gap: 0.6rem;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .builder-main-row {
+    gap: 1.25rem;
+  }
+  
+  .form-inputs {
+    width: 240px;
+  }
+  
+  .right-side-container {
+    width: 280px;
+  }
+  
+  .selected-hack-slot {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .selected-hack-slot img {
+    height: 45px;
+  }
+  
+  .score-indicators {
+    gap: 0.6rem;
+    font-size: 0.65rem;
+  }
+  
+  .score-bar {
+    width: 38px;
+    height: 5px;
+  }
+  
+  .score-item span {
+    font-size: 0.6rem;
+  }
+  
+  .action-buttons {
+    gap: 0.5rem;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.65rem;
+  }
+}
+
+/* Mobile layout - Stack vertically */
+@media (max-width: 768px) {
+  .protocol-builder {
+    height: 160px;
+  }
+  
+  .builder-content {
+    padding: 1rem;
+  }
+  
+  .builder-main-row {
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+  }
+  
+  .form-inputs {
+    width: 100%;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .form-inputs > div {
+    flex: 1;
+  }
+  
+  .selected-hacks-section {
+    order: 2;
+  }
+  
+  .selected-hacks-container {
+    max-width: 100%;
+  }
+  
+  .selected-hack-slot {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .selected-hack-slot img {
+    height: 40px;
+  }
+  
+  .right-side-container {
+    order: 3;
+    width: 100%;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .score-indicators {
+    flex: 1;
+    justify-content: space-around;
+    gap: 0.5rem;
+    font-size: 0.6rem;
+  }
+  
+  .action-buttons {
+    flex: 1;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .builder-content {
+    padding: 0.75rem;
+  }
+  
+  .form-inputs {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .selected-hack-slot {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .selected-hack-slot img {
+    height: 35px;
+  }
+  
+  .hack-name {
+    font-size: 0.6rem;
+  }
+  
+  .score-indicators {
+    gap: 0.4rem;
+    font-size: 0.55rem;
+  }
+  
+  .score-bar {
+    width: 32px;
+    height: 4px;
+  }
+  
+  .score-item span {
+    font-size: 0.5rem;
+  }
+  
+  .action-buttons {
+    gap: 0.4rem;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.6rem;
+  }
+} 

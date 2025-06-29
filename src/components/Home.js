@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../supabase';
+import TopNavigation from './TopNavigation';
 import './Home.css';
 
 const Home = () => {
@@ -44,6 +45,7 @@ const Home = () => {
   if (loading) {
     return (
       <div className="home-container">
+        <TopNavigation activePage="home" />
         <div className="loading">Loading...</div>
       </div>
     );
@@ -51,6 +53,8 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      <TopNavigation activePage="home" />
+      
       <div className="home-content">
         <div className="home-header">
           <h1>Welcome to Everla</h1>
@@ -64,9 +68,17 @@ const Home = () => {
           <p><strong>Last Sign In:</strong> {new Date(user?.last_sign_in_at).toLocaleString()}</p>
         </div>
 
-        <button onClick={handleSignOut} className="signout-button">
-          Sign Out
-        </button>
+        <div className="action-buttons">
+          <button 
+            onClick={() => navigate('/protocols/create')} 
+            className="primary-button"
+          >
+            Create a Protocol
+          </button>
+          <button onClick={handleSignOut} className="signout-button">
+            Sign Out
+          </button>
+        </div>
       </div>
     </div>
   );

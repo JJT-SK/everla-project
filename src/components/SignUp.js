@@ -349,12 +349,13 @@ const SignUp = () => {
     <div className="signup-container">
       <div className="signup-card">
         {/* Logo and Brand */}
-        <div className="brand-section">
-          <div className="logo">
-            <img src={`${process.env.PUBLIC_URL}/logo.jpeg`} alt="Everla Logo" className="logo-image" />
-          </div>
-        </div>
-
+        <div className="logo">
+        <img
+          src="https://zgiszibrpcfnixelehrp.supabase.co/storage/v1/object/public/testpublic/logo_LE_upscale_balanced_x4.jpg"
+          alt="Everla Logo"
+          className="logo-image"
+        />
+      </div>
         {/* Header */}
         <div className="signup-header">
           <h2>Create your account</h2>

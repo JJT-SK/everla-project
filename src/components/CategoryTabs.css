@@ -1,0 +1,99 @@
+.category-tabs {
+  margin-top: 0;
+  overflow-x: auto;
+  flex: 1;
+}
+
+.tabs-container {
+  display: flex;
+  gap: 0.25rem;
+  min-width: max-content;
+  padding-bottom: 0;
+  height: 36px;
+  align-items: center;
+}
+
+.category-tab {
+  background: none;
+  border: none;
+  color: #8a8a8a;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  white-space: nowrap;
+  position: relative;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.category-tab:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.category-tab.active {
+  color: #4a9eff;
+  background: rgba(74, 158, 255, 0.08);
+  font-weight: 600;
+}
+
+.category-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #4a9eff;
+  border-radius: 0.5px;
+}
+
+/* Scrollbar styling */
+.category-tabs::-webkit-scrollbar {
+  height: 2px;
+}
+
+.category-tabs::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 1px;
+}
+
+.category-tabs::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1px;
+}
+
+.category-tabs::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .category-tab {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.7rem;
+    height: 26px;
+  }
+  
+  .tabs-container {
+    gap: 0.2rem;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-tab {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.65rem;
+    height: 24px;
+  }
+  
+  .tabs-container {
+    gap: 0.15rem;
+    height: 28px;
+  }
+} 

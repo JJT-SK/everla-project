@@ -1,0 +1,117 @@
+.search-bar {
+  width: 100%;
+  max-width: 320px;
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  transition: all 0.2s ease;
+  height: 36px;
+}
+
+.search-input-container:focus-within {
+  border-color: #4a9eff;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 1px rgba(74, 158, 255, 0.2);
+}
+
+.search-icon {
+  color: #8a8a8a;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 0.8rem;
+  outline: none;
+  min-width: 0;
+  font-weight: 400;
+}
+
+.search-input::placeholder {
+  color: #8a8a8a;
+  font-weight: 400;
+}
+
+.clear-button {
+  background: none;
+  border: none;
+  color: #8a8a8a;
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin-left: 0.4rem;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.clear-button:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .search-bar {
+    max-width: 100%;
+  }
+  
+  .search-input-container {
+    padding: 0.4rem 0.6rem;
+    height: 32px;
+  }
+  
+  .search-input {
+    font-size: 0.75rem;
+  }
+  
+  .search-icon {
+    margin-right: 0.4rem;
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input-container {
+    padding: 0.35rem 0.5rem;
+    height: 30px;
+  }
+  
+  .search-input {
+    font-size: 0.7rem;
+  }
+  
+  .search-icon {
+    margin-right: 0.35rem;
+    width: 12px;
+    height: 12px;
+  }
+  
+  .clear-button {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .clear-button svg {
+    width: 10px;
+    height: 10px;
+  }
+} 

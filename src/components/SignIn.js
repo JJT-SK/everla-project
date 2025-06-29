@@ -180,12 +180,13 @@ const SignIn = () => {
     <div className="signin-container">
       <div className="signin-card">
         {/* Logo and Brand */}
-        <div className="brand-section">
-          <div className="logo">
-            <img src={`${process.env.PUBLIC_URL}/logo.jpeg`} alt="Everla Logo" className="logo-image" />
-          </div>
-        </div>
-
+        <div className="logo">
+        <img
+          src="https://zgiszibrpcfnixelehrp.supabase.co/storage/v1/object/public/testpublic/logo.jpeg"
+          alt="Everla Logo"
+          className="logo-image"
+        />
+      </div>
         <div className="signin-header">
           <h1>Welcome back</h1>
           <p className="signin-subtitle">{errorMessage}</p>

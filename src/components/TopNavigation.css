@@ -1,0 +1,229 @@
+.top-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: rgba(10, 14, 26, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  height: 100%;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  color: #4a9eff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  line-height: 1;
+  padding: 0.5rem 0;
+  margin: 0;
+  height: 100%;
+  position: relative;
+}
+
+.nav-logo-image {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #F4CDB8;
+  transition: color 0.3s ease;
+}
+
+.nav-logo:hover {
+  color: #6bb3ff;
+}
+
+.nav-logo:hover .nav-logo-text {
+  color: #6bb3ff;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: #a0a0a0;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+  position: relative;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.nav-button:hover {
+  color: #ffffff;
+}
+
+.nav-button.active {
+  color: #4a9eff;
+  font-weight: 600;
+}
+
+.nav-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #4a9eff;
+  border-radius: 1px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-icon {
+  background: none;
+  border: none;
+  color: #a0a0a0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.profile-icon {
+  background: rgba(74, 158, 255, 0.1);
+  color: #4a9eff;
+}
+
+.profile-icon:hover {
+  background: rgba(74, 158, 255, 0.2);
+  color: #6bb3ff;
+}
+
+/* Large screen optimizations - reduce padding and increase max-width */
+@media (min-width: 1600px) {
+  .nav-container {
+    max-width: 1800px;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  .nav-container {
+    max-width: 2000px;
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 2400px) {
+  .nav-container {
+    max-width: 2200px;
+    padding: 0 0.75rem;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+  
+  .nav-left {
+    gap: 1.5rem;
+  }
+  
+  .nav-buttons {
+    gap: 1rem;
+  }
+  
+  .nav-button {
+    font-size: 0.9rem;
+  }
+  
+  .nav-right {
+    gap: 0.5rem;
+  }
+  
+  .nav-icon {
+    padding: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 0.75rem;
+  }
+  
+  .nav-logo {
+    font-size: 1.25rem;
+  }
+  
+  .nav-buttons {
+    gap: 0.75rem;
+  }
+  
+  .nav-button {
+    font-size: 0.85rem;
+  }
+  
+  .nav-right {
+    gap: 0.25rem;
+  }
+  
+  .nav-icon {
+    padding: 0.3rem;
+  }
+  
+  .nav-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+} 
