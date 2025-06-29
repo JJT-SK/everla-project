@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../supabase';
 import TopNavigation from './TopNavigation';
@@ -9,11 +9,7 @@ const ProtocolCatalogue = () => {
   const [protocols, setProtocols] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchProtocols();
-  }, []);
-
-  const fetchProtocols = async () => {
+  const fetchProtocols = useCallback(async () => {
     try {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) {
@@ -40,7 +36,11 @@ const ProtocolCatalogue = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [navigate]);
+
+  useEffect(() => {
+    fetchProtocols();
+  }, [fetchProtocols]);
 
   if (loading) {
     return (
