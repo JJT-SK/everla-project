@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/everla-project/static/css/main.d88fd801.css",
-    "main.js": "/everla-project/static/js/main.e397ab08.js",
+    "main.css": "/everla-project/static/css/main.747ec017.css",
+    "main.js": "/everla-project/static/js/main.c9212306.js",
     "index.html": "/everla-project/index.html",
-    "main.d88fd801.css.map": "/everla-project/static/css/main.d88fd801.css.map",
-    "main.e397ab08.js.map": "/everla-project/static/js/main.e397ab08.js.map"
+    "main.747ec017.css.map": "/everla-project/static/css/main.747ec017.css.map",
+    "main.c9212306.js.map": "/everla-project/static/js/main.c9212306.js.map"
   },
   "entrypoints": [
-    "static/css/main.d88fd801.css",
-    "static/js/main.e397ab08.js"
+    "static/css/main.747ec017.css",
+    "static/js/main.c9212306.js"
   ]
 }
