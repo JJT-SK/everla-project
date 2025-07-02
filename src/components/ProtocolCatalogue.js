@@ -4,41 +4,6 @@ import { supabase } from '../supabase';
 import TopNavigation from './TopNavigation';
 import './ProtocolCatalogue.css';
 
-// Sample protocol data (replace with Supabase fetch)
-const sampleProtocols = [
-  {
-    id: 1,
-    name: "Tim's Morning Stack",
-    description: "A powerful start: cold plunge, movement, and nutrition.",
-    biohacks: [
-      { id: 1, name: "Cold Plunge", emoji: "🧊", efficacy_score: 4.5, difficulty_score: 3, time_investment_score: 2, cost_score: 2 },
-      { id: 2, name: "Exercise", emoji: "🏃‍♂️", efficacy_score: 4, difficulty_score: 3.5, time_investment_score: 3, cost_score: 2 },
-      { id: 3, name: "Apple", emoji: "🍏", efficacy_score: 2, difficulty_score: 1, time_investment_score: 1, cost_score: 1 },
-      { id: 4, name: "Meditation", emoji: "🧘", efficacy_score: 3.5, difficulty_score: 2, time_investment_score: 2, cost_score: 1 },
-    ],
-  },
-  {
-    id: 2,
-    name: "Evening Wind Down",
-    description: "Relax and recover: sauna, reading, and sleep hygiene.",
-    biohacks: [
-      { id: 5, name: "Sauna", emoji: "🔥", efficacy_score: 4, difficulty_score: 2, time_investment_score: 2, cost_score: 3 },
-      { id: 6, name: "Reading", emoji: "📚", efficacy_score: 2.5, difficulty_score: 1, time_investment_score: 2, cost_score: 1 },
-      { id: 7, name: "Sleep Hygiene", emoji: "🛏️", efficacy_score: 4, difficulty_score: 1, time_investment_score: 2, cost_score: 1 },
-    ],
-  },
-  {
-    id: 3,
-    name: "Focus Protocol",
-    description: "Sharpen your mind: nootropics, hydration, and deep work.",
-    biohacks: [
-      { id: 8, name: "Nootropics", emoji: "💊", efficacy_score: 3, difficulty_score: 2, time_investment_score: 1, cost_score: 3 },
-      { id: 9, name: "Hydration", emoji: "💧", efficacy_score: 2, difficulty_score: 1, time_investment_score: 1, cost_score: 1 },
-      { id: 10, name: "Deep Work", emoji: "🧠", efficacy_score: 4, difficulty_score: 3, time_investment_score: 3, cost_score: 1 },
-    ],
-  },
-];
-
 function weightedAverage(protocol, key) {
   const biohacks = protocol.biohacks || [];
   if (!biohacks.length) return 0;
