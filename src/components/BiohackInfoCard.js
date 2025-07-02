@@ -7,17 +7,25 @@ const BiohackInfoCard = ({ biohack, onClose, onAddToProtocol, isFavourited, onTo
 
   // Helper function to format dosage string
   const formatDosage = () => {
-    const { common_dosage_lower, common_dosage_upper, common_dosage_interval_unit } = biohack;
+    const { common_dosage_lower, common_dosage_upper, common_dosage_small_interval_units, common_dosage_large_interval_units } = biohack;
     
-    if (!common_dosage_lower || !common_dosage_upper || !common_dosage_interval_unit) {
+    if (!common_dosage_lower || !common_dosage_upper) {
       return 'Dosage information not available';
     }
 
+    let dosage = '';
     if (common_dosage_lower === common_dosage_upper) {
-      return `${common_dosage_lower}${common_dosage_interval_unit}`;
+      dosage = `${common_dosage_lower}`;
     } else {
-      return `${common_dosage_lower}–${common_dosage_upper} ${common_dosage_interval_unit}`;
+      dosage = `${common_dosage_lower}–${common_dosage_upper}`;
     }
+    if (common_dosage_small_interval_units) {
+      dosage += ` ${common_dosage_small_interval_units}`;
+    }
+    if (common_dosage_large_interval_units) {
+      dosage += ` ${common_dosage_large_interval_units}`;
+    }
+    return dosage.trim();
   };
 
   // Helper function to format results timeline
@@ -25,8 +33,7 @@ const BiohackInfoCard = ({ biohack, onClose, onAddToProtocol, isFavourited, onTo
     const { 
       results_timeline_lower, 
       results_timeline_upper, 
-      results_timeline_small_interval_units,
-      results_timeline_large_interval_units 
+      results_timeline_interval_units 
     } = biohack;
 
     if (!results_timeline_lower || !results_timeline_upper) {
@@ -34,9 +41,9 @@ const BiohackInfoCard = ({ biohack, onClose, onAddToProtocol, isFavourited, onTo
     }
 
     if (results_timeline_lower === results_timeline_upper) {
-      return `${results_timeline_lower} ${results_timeline_small_interval_units || results_timeline_large_interval_units}`;
+      return `${results_timeline_lower} ${results_timeline_interval_units}`;
     } else {
-      return `${results_timeline_lower}–${results_timeline_upper} ${results_timeline_small_interval_units || results_timeline_large_interval_units}`;
+      return `${results_timeline_lower}–${results_timeline_upper} ${results_timeline_interval_units}`;
     }
   };
 
@@ -181,9 +188,9 @@ const BiohackInfoCard = ({ biohack, onClose, onAddToProtocol, isFavourited, onTo
         {/* Score Bars */}
         <div className="info-card-scores">
           <div className="scores-container">
-            {renderScoreBar(biohack.efficacy_score || 0, 'Effectiveness')}
+            {renderScoreBar(biohack.efficacy_score || 0, 'Efficacy')}
             {renderScoreBar(biohack.difficulty_score || 0, 'Difficulty')}
-            {renderScoreBar(biohack.time_investment_score || 0, 'Time Investment')}
+            {renderScoreBar(biohack.time_investment_score || 0, 'Time')}
             {renderScoreBar(biohack.cost_score || 0, 'Cost')}
           </div>
         </div>
